@@ -1,0 +1,66 @@
+<nb-layout>
+  <nb-layout-column></nb-layout-column>
+  <nb-layout-column>
+
+    <nb-alert status="danger" closable (close)="onClose()" *ngIf="isErrorExist">
+      Usuario o contraseña incorrectos
+    </nb-alert>
+
+    <nb-card style="margin-top: 10%;">
+      <nb-card-header>
+        <h3>Iniciar sesión</h3>
+      </nb-card-header>
+      <nb-card-body>
+        <label for="username">Usuario</label>
+        <input
+          type="text"
+          id="username"
+          nbInput
+          fullWidth
+          [(ngModel)]="username"
+          status="basic"
+          class="form-control"
+          required
+        />
+
+        <label for="password">Contraseña</label>
+        <nb-form-field>
+          <input
+            [type]="getInputType()"
+            id="password"
+            nbInput
+            fullWidth
+            [(ngModel)]="password"
+            class="form-control"
+            required
+            nbInput
+          />
+          <button nbSuffix nbButton ghost (click)="toggleShowPassword()">
+            <nb-icon
+              [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+              pack="eva"
+              [attr.aria-label]="
+                showPassword ? 'hide password' : 'show password'
+              "
+            >
+            </nb-icon>
+          </button>
+        </nb-form-field>
+
+        <button
+          type="submit"
+          nbButton
+          status="primary"
+          class="form-control"
+          fullWidth
+          (click)="login()"
+          (keyup.enter)="login()"
+          [disabled]="!username || !password"
+        >
+          Iniciar sesión
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+  <nb-layout-column></nb-layout-column>
+</nb-layout>
