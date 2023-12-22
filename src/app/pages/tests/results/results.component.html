@@ -1,0 +1,49 @@
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+                <nb-card-header> BDI-II (Inventario de Depresión de Beck) </nb-card-header>
+
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <b>Tabla de Rangos del inventario</b>
+                            <table class="table table-bordered mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>Rango</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-13</td>
+                                        <td>Mínimo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14-19</td>
+                                        <td>Leve</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20-28</td>
+                                        <td>Moderado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>29-63</td>
+                                        <td>Severo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-8">
+                            <b>Resultado</b>
+                            <div class="mt-5">
+                                <h2>Puntaje total: {{ answerService.answer.total }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

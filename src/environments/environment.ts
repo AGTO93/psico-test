@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  API : 'http://localhost:3000',
-  API_AUTH : 'http://localhost:3000/auth',
-  ROOT : '/api/v1'
+  ROOT : 'http://localhost:3000',
+  API : 'http://localhost:3000/api',
+  API_AUTH : 'http://localhost:3000/auth'
 };
 
 /*

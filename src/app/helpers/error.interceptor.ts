@@ -24,7 +24,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 return throwError(() => err);
             }
 
-            if (err.status === 401) {
+            if (err.status === 401 || err.status === 403) {
                 console.log('Sesión caducada');
                 this._authService.deleteLocalStorage();
                 this.router.navigate(['/login']);

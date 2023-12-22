@@ -1,6 +1,21 @@
 <nb-layout>
   <nb-layout-header fixed>
-    <p>Centro médico y diagnóstico Paz</p>
+    <div class="header-container">
+      <b><img src="../../assets/images/logo.jpg" alt="logo" style="width: 10%;"> Centro Médico y Diagnóstico Paz</b>
+    </div>
+
+    <div class="header-container another-header">
+      <nb-actions size="small">
+        <nb-action class="control-item">
+          <nb-user
+            name="{{
+              roleName == 'ADMINISTRATOR' ? 'ADMINISTRADOR' : 'EMPLEADO'
+            }}"
+            title="{{ employeeName + ' ' + employeeLastname }}"
+          ></nb-user>
+        </nb-action>
+      </nb-actions>
+    </div>
   </nb-layout-header>
 
   <nb-sidebar>
@@ -11,4 +26,3 @@
     <router-outlet></router-outlet>
   </nb-layout-column>
 </nb-layout>
-

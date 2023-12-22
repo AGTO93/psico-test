@@ -1,0 +1,65 @@
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card>
+                <nb-card-header> BDI-II (Inventario de Depresión de Beck) </nb-card-header>
+
+                <nb-card-body>
+                    <form class="form" [formGroup]="form">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="patient">Paciente:</label>
+                                    <select id="patient" name="patient" formControlName="patientId" class="form-control">
+                                        <option *ngFor="let patient of patientService.patientList" [value]="patient.id">
+                                            {{ patient.documentNumber + ' - ' + patient.name + ' ' + patient.lastname }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div *ngIf="form.hasError('atLeastOneSelected') && form.touched">
+                                Al menos una opción debe ser seleccionada.
+                            </div>
+
+                            <div *ngFor="let category of this.versionService.fullVersion.categories">
+                                <div class="row" *ngFor="let subcategory of category.subcategories">
+                                    <div class="col-md-6 mb-2" *ngFor="let question of subcategory.questions">
+                                        <fieldset>
+                                            <strong>{{ question.order + ' - ' + question.description }}</strong>
+                                            <div *ngFor="let option of question.options">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="{{ option.id }}"
+                                                        name="{{ question.id }}" [value]="option.value"
+                                                        [formControl]="getFormControl(question.id)" />
+                                                    <label class="form-check-label" for="{{ option.id }}">{{
+                                                        option.order + '. ' + option.name }}</label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-5">
+                                <button type="submit" (click)="save($event)" class="btn btn-primary"
+                                    [disabled]="form.invalid">
+                                    Guardar</button>&nbsp;
+                                <button type="button" (click)="resetForm()" class="btn btn-secondary">
+                                    Cancelar
+                                </button>&nbsp;
+                                <!-- <button type="button" class="btn btn-danger">
+                                    Eliminar
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-success">
+                                    Generar
+                                </button> -->
+                            </div>
+                        </div>
+                    </form>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

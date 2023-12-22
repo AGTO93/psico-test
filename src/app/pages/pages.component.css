@@ -1,0 +1,81 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+nb-action {
+    height: auto;
+    display: flex;
+    align-content: center;
+}
+
+nb-user {
+    cursor: pointer;
+}
+
+::ng-deep nb-search button {
+    padding: 0 !important;
+}
+
+.header-container {
+    display: flex;
+    align-items: right;
+    width: auto;
+
+    .logo {
+        padding: 0 1.25rem;
+        font-size: 1.75rem;
+        white-space: nowrap;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .control-item {
+        display: none;
+    }
+
+    .stickey-footer {
+        display: block;
+    }
+
+    .user-action {
+        border: none;
+        padding: 0;
+    }
+}
+
+.logo img {
+    height: 56px;
+}
+
+nb-layout {
+    width: 100%;
+}
+
+.control-item {
+    margin-left: auto;
+}
+
+.another-header {
+    margin-left: auto !important;
+}
+
+nb-layout-header {
+    z-index: 100;
+}
+
+::ng-deep nb-action {
+    cursor: pointer;
+}
+
+@media print {
+    nb-layout-header {
+        display: none !important;
+    }
+
+    ::ng-deep nb-card-header {
+        display: none;
+    }
+
+}

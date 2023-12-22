@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       this.isErrorExist = false;
       console.log('inicio de sesión exitoso!');
     }, err => {
+      console.log('error al iniciar sesión', err);
       this.isErrorExist = true;
       console.log('usuario o contraseña incorrecto!');
     });

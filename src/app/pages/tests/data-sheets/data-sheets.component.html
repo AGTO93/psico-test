@@ -1,0 +1,92 @@
+<div class="fluid-container">
+    <!-- <div class="row">
+        <div class="col-md-4">
+            <nb-card>
+                <nb-card-header> Ficha Técnica </nb-card-header>
+
+                <nb-card-body>
+                    <form class="form" [formGroup]="form" (ngSubmit)="save()">
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="patient">Paciente:</label>
+                                    <select id="patient" name="patient" formControlName="patientId" class="form-control">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="informat">Informante:</label>
+                                    <input type="text" id="informat" name="informat" formControlName="informant" class="form-control"
+                                        placeholder="Nombre de persona o persona no jurídica" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="reason">Motivo de consulta:</label>
+                                    <textarea class="form-control" name="reason" formControlName="reason" id="reason"></textarea>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="description">Descripción del consultante:</label>
+                                    <textarea class="form-control" name="description" formControlName="description" id="description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="obs">Observaciones:</label>
+                                    <textarea class="form-control" name="obs" formControlName="obs" id="obs"></textarea>
+                                </div>
+                            </div>
+                            <div class="col col-md-12 mt-4">
+                                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                                    Guardar</button>&nbsp;
+                                <button type="button" (click)="resetForm()" class="btn btn-secondary">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="col-md-8">
+            <div class="responsive-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Paciente</th>
+                            <th>Creado el</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of dataSheetList; index as i">
+                            <td>{{ i + 1 }}</td>
+                          <td>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fa-icon role="button" [icon]="faPencilAlt"
+                                            (click)="editInForm(data)"></fa-icon>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fa-icon role="button" [icon]="faTrashAlt" (click)="delete(data)"></fa-icon>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between p-2">
+                    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                        (pageChange)="refreshTable()" [boundaryLinks]="false" [maxSize]="10">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

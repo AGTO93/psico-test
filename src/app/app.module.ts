@@ -10,12 +10,16 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routing';
 import { PagesModule } from './pages/pages.module';
 import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,8 @@ import { LoginComponent } from './login/login.component';
     NbIconModule,
     NbAlertModule,
     NbMenuModule.forRoot(),
+    NgbModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

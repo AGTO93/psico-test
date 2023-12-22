@@ -1,0 +1,160 @@
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-md-4">
+            <nb-card>
+                <nb-card-header>
+                    Mantenimiento de Pacientes
+                </nb-card-header>
+
+                <nb-card-body>
+                    <form class="form" [formGroup]="form" (ngSubmit)="save()">
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="name">Nombres:</label>
+                                    <input type="text" id="name" formControlName="name" class="form-control"
+                                        placeholder="Nombres del usuario" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="lastname">Apellidos:</label>
+                                    <input type="text" id="lastname" formControlName="lastname" class="form-control"
+                                        placeholder="Apellidos del usuario" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="date-of-birth">Fecha de nacimiento:</label>
+                                    <input type="date" id="date-of-birth" formControlName="dateOfBirth"
+                                        class="form-control" placeholder="Fecha de nacimiento del usuario" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="gender">Sexo:</label>
+                                    <select id="gender" class="form-control" formControlName="genderId">
+                                        <option *ngFor="let gender of genderService.genderList" [value]="gender.id">{{
+                                            gender.name }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="document-type">Tipo de documento:</label>
+                                    <select id="document-type" class="form-control" formControlName="documentTypeId">
+                                        <option *ngFor="let documentType of documentTypeService.documentTypeList"
+                                            [value]="documentType.id">{{ documentType.name }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="document-number">Número de documento:</label>
+                                    <input type="text" id="document-number" formControlName="documentNumber"
+                                        class="form-control" placeholder="Número de documento del usuario" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="address">Dirección:</label>
+                                    <input type="text" id="address" formControlName="address" class="form-control"
+                                        placeholder="Dirección del usuario" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="phone-number">Número de teléfono:</label>
+                                    <input type="text" id="phone-number" formControlName="phoneNumber"
+                                        class="form-control" placeholder="Número de teléfono del usuario" />
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="document-type">País:</label>
+                                    <select id="country" class="form-control" formControlName="countryId">
+                                        <option *ngFor="let country of countryService.countryList" [value]="country.id">
+                                            {{ country.name }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="document-type">Ciudad:</label>
+                                    <select id="city" class="form-control" formControlName="cityId">
+                                        <option *ngFor="let city of cityService.cityList" [value]="city.id">{{ city.name
+                                            }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="email">Correo electrónico:</label>
+                                    <input type="email" id="email" formControlName="email" class="form-control"
+                                        placeholder="Correo electrónico del usuario" />
+                                </div>
+                            </div>
+
+                            <div class="col col-md-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-2" for="employee">Profesional a cargo:</label>
+                                    <select id="employee" formControlName="employeeId" class="form-control">
+                                        <option *ngFor="let employee of employeeService.employeeList" [value]="employee.id">{{ employee.name + ' ' + employee.lastname }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-md-12">
+                                <button type="submit" class="btn btn-primary">Guardar</button>&nbsp;
+                                <button type="button" (click)="resetForm()" class="btn btn-secondary">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="col-md-8">
+            <div class="responsive-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nro. Doc.</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Creado el</th>
+                            <th>Actualizado el</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let patient of patientList; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ patient.documentNumber }}</td>
+                            <td>{{ patient.name }}</td>
+                            <td>{{ patient.lastname }}</td>
+                            <td>{{ patient.createdAt | date: 'dd/MM/yyyy HH:mm' }}</td>
+                            <td>{{ patient.updatedAt | date: 'dd/MM/yyyy HH:mm' }}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fa-icon role="button" [icon]="faPencilAlt"
+                                            (click)="editInForm(patient)"></fa-icon>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fa-icon role="button" [icon]="faTrashAlt" (click)="delete(patient)"></fa-icon>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between p-2">
+                    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                        (pageChange)="refreshTable()" [boundaryLinks]="false" [maxSize]="10">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
